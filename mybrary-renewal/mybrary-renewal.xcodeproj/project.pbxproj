@@ -11,6 +11,7 @@
 		F58916D42BA59995008EC345 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916D32BA59995008EC345 /* ContentView.swift */; };
 		F58916D62BA59997008EC345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F58916D52BA59997008EC345 /* Assets.xcassets */; };
 		F58916D92BA59997008EC345 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F58916D82BA59997008EC345 /* Preview Assets.xcassets */; };
+		F58916E22BA5A12B008EC345 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916E12BA5A12B008EC345 /* AuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		F58916D32BA59995008EC345 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F58916D52BA59997008EC345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F58916D82BA59997008EC345 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F58916E12BA5A12B008EC345 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +73,17 @@
 		F58916DF2BA59E88008EC345 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F58916E02BA5A121008EC345 /* Auth */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F58916E02BA5A121008EC345 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F58916E12BA5A12B008EC345 /* AuthView.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 			files = (
 				F58916D42BA59995008EC345 /* ContentView.swift in Sources */,
 				F58916D22BA59995008EC345 /* mybrary_renewalApp.swift in Sources */,
+				F58916E22BA5A12B008EC345 /* AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
