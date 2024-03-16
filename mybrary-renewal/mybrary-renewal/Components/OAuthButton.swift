@@ -19,6 +19,7 @@ struct OAuthButton: View {
             HStack{
                 Spacer()
                 Text(authText)
+                    .font(.system(size: 16))
                     .foregroundStyle(authTextColor)
                 Spacer()
             }
