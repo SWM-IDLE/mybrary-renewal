@@ -51,6 +51,7 @@
 		F58916D02BA59995008EC345 /* mybrary-renewal */ = {
 			isa = PBXGroup;
 			children = (
+				F58916DF2BA59E88008EC345 /* View */,
 				F58916D12BA59995008EC345 /* mybrary_renewalApp.swift */,
 				F58916D32BA59995008EC345 /* ContentView.swift */,
 				F58916D52BA59997008EC345 /* Assets.xcassets */,
@@ -65,6 +66,13 @@
 				F58916D82BA59997008EC345 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F58916DF2BA59E88008EC345 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
