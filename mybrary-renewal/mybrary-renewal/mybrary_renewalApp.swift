@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct mybrary_renewalApp: App {
+    
+    @StateObject var oauthManager = OAuthManager.shared
+    
     var body: some Scene {
         WindowGroup {
-            AuthView()
+            ContentView().environmentObject(OAuthVM())
+                .onAppear {
+                    oauthManager.checkTokenExpiration()
+                }
         }
     }
 }

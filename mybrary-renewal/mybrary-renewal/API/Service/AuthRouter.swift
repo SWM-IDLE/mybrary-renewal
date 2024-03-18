@@ -26,4 +26,23 @@ enum AuthRouter: URLRequestConvertible {
         }
     }
     
+    var method: HTTPMethod {
+        switch self {
+        case .naverLogin: return .get
+        case .kakaoLogin: return .get
+        case .googleLogin: return .get
+        }
+    }
+    
+    func asURLRequest() throws -> URLRequest {
+        let url = baseURL.appendingPathComponent(endPoint)
+        
+        var request = URLRequest(url: url)
+        
+        request.method = method
+        request.httpBody = try JSONEncoding.default.encode(request).httpBody
+        
+        return request
+    }
+    
 }

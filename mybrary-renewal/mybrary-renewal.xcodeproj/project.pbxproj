@@ -15,12 +15,15 @@
 		F58916E52BA5A332008EC345 /* OAuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916E42BA5A332008EC345 /* OAuthButton.swift */; };
 		F58916E72BA5A636008EC345 /* CommonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916E62BA5A636008EC345 /* CommonStyle.swift */; };
 		F58916ED2BA5AA78008EC345 /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916EC2BA5AA78008EC345 /* BaseInterceptor.swift */; };
-		F58916F02BA5AA88008EC345 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F58916EF2BA5AA88008EC345 /* Alamofire */; };
-		F58916F22BA5AA88008EC345 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F58916F12BA5AA88008EC345 /* AlamofireDynamic */; };
 		F58916F42BA5AAD6008EC345 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916F32BA5AAD6008EC345 /* ApiLogger.swift */; };
 		F58916F62BA5AB53008EC345 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916F52BA5AB53008EC345 /* ApiClient.swift */; };
 		F58916F82BA5B302008EC345 /* AuthApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916F72BA5B302008EC345 /* AuthApiService.swift */; };
 		F58916FA2BA5B316008EC345 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916F92BA5B316008EC345 /* AuthRouter.swift */; };
+		F58916FF2BA6894B008EC345 /* OAuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58916FE2BA6894B008EC345 /* OAuthVM.swift */; };
+		F58917122BA69771008EC345 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F58917112BA69771008EC345 /* Alamofire */; };
+		F58917142BA69771008EC345 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F58917132BA69771008EC345 /* AlamofireDynamic */; };
+		F589171C2BA6A400008EC345 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589171B2BA6A400008EC345 /* HomeView.swift */; };
+		F589172A2BA8376E008EC345 /* OAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58917292BA8376E008EC345 /* OAuthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,10 @@
 		F58916F52BA5AB53008EC345 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		F58916F72BA5B302008EC345 /* AuthApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApiService.swift; sourceTree = "<group>"; };
 		F58916F92BA5B316008EC345 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		F58916FE2BA6894B008EC345 /* OAuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthVM.swift; sourceTree = "<group>"; };
+		F58917002BA68CD1008EC345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F589171B2BA6A400008EC345 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F58917292BA8376E008EC345 /* OAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F58916F02BA5AA88008EC345 /* Alamofire in Frameworks */,
-				F58916F22BA5AA88008EC345 /* AlamofireDynamic in Frameworks */,
+				F58917122BA69771008EC345 /* Alamofire in Frameworks */,
+				F58917142BA69771008EC345 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,9 +78,12 @@
 		F58916D02BA59995008EC345 /* mybrary-renewal */ = {
 			isa = PBXGroup;
 			children = (
+				F58917282BA8375F008EC345 /* Manager */,
+				F58917002BA68CD1008EC345 /* Info.plist */,
 				F58916E82BA5AA47008EC345 /* API */,
 				F58916E32BA5A325008EC345 /* Components */,
 				F58916DF2BA59E88008EC345 /* Views */,
+				F58916FB2BA683D2008EC345 /* ViewModels */,
 				F58916D12BA59995008EC345 /* mybrary_renewalApp.swift */,
 				F58916D32BA59995008EC345 /* ContentView.swift */,
 				F58916D52BA59997008EC345 /* Assets.xcassets */,
@@ -93,6 +103,7 @@
 		F58916DF2BA59E88008EC345 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F589171A2BA6A3ED008EC345 /* Home */,
 				F58916E02BA5A121008EC345 /* Auth */,
 			);
 			path = Views;
@@ -151,6 +162,30 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		F58916FB2BA683D2008EC345 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F58916FE2BA6894B008EC345 /* OAuthVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F589171A2BA6A3ED008EC345 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F589171B2BA6A400008EC345 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F58917282BA8375F008EC345 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F58917292BA8376E008EC345 /* OAuthManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,8 +203,8 @@
 			);
 			name = "mybrary-renewal";
 			packageProductDependencies = (
-				F58916EF2BA5AA88008EC345 /* Alamofire */,
-				F58916F12BA5AA88008EC345 /* AlamofireDynamic */,
+				F58917112BA69771008EC345 /* Alamofire */,
+				F58917132BA69771008EC345 /* AlamofireDynamic */,
 			);
 			productName = "mybrary-renewal";
 			productReference = F58916CE2BA59995008EC345 /* mybrary-renewal.app */;
@@ -200,7 +235,7 @@
 			);
 			mainGroup = F58916C52BA59995008EC345;
 			packageReferences = (
-				F58916EE2BA5AA88008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F58917102BA69771008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = F58916CF2BA59995008EC345 /* Products */;
 			projectDirPath = "";
@@ -232,12 +267,15 @@
 				F58916E52BA5A332008EC345 /* OAuthButton.swift in Sources */,
 				F58916FA2BA5B316008EC345 /* AuthRouter.swift in Sources */,
 				F58916F42BA5AAD6008EC345 /* ApiLogger.swift in Sources */,
+				F58916FF2BA6894B008EC345 /* OAuthVM.swift in Sources */,
 				F58916F62BA5AB53008EC345 /* ApiClient.swift in Sources */,
 				F58916ED2BA5AA78008EC345 /* BaseInterceptor.swift in Sources */,
 				F58916D22BA59995008EC345 /* mybrary_renewalApp.swift in Sources */,
 				F58916E72BA5A636008EC345 /* CommonStyle.swift in Sources */,
+				F589171C2BA6A400008EC345 /* HomeView.swift in Sources */,
 				F58916E22BA5A12B008EC345 /* AuthView.swift in Sources */,
 				F58916F82BA5B302008EC345 /* AuthApiService.swift in Sources */,
+				F589172A2BA8376E008EC345 /* OAuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +412,9 @@
 				DEVELOPMENT_TEAM = LBF339CHR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mybrary-renewal/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "마이브러리";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -405,6 +446,9 @@
 				DEVELOPMENT_TEAM = LBF339CHR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mybrary-renewal/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "마이브러리";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,7 +493,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F58916EE2BA5AA88008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		F58917102BA69771008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -460,14 +504,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F58916EF2BA5AA88008EC345 /* Alamofire */ = {
+		F58917112BA69771008EC345 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F58916EE2BA5AA88008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = F58917102BA69771008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		F58916F12BA5AA88008EC345 /* AlamofireDynamic */ = {
+		F58917132BA69771008EC345 /* AlamofireDynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F58916EE2BA5AA88008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = F58917102BA69771008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
