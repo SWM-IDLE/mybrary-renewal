@@ -17,7 +17,6 @@ struct AuthView: View {
     @State var showGoogleWK = false
     @State var showNaverWK = false
     @State var showKakaoWK = false
-    @State var completedLogin = false
     
     var body: some View {
         NavigationStack{
@@ -57,13 +56,9 @@ struct AuthView: View {
                                     self.accessToken = accessToken
                                     self.refreshToken = refreshToken
                                     
-                                    print(accessToken)
-                                    print(refreshToken)
-                                    
                                     oauthVM.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
                                     
                                     showKakaoWK = false
-                                    completedLogin = true
                                 }
                             })
                         })
@@ -79,13 +74,9 @@ struct AuthView: View {
                                     self.accessToken = accessToken
                                     self.refreshToken = refreshToken
                                     
-                                    print(accessToken)
-                                    print(refreshToken)
-                                    
                                     oauthVM.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
                                     
                                     showNaverWK = false
-                                    completedLogin = true
                                 }
                             })
                         })
@@ -100,20 +91,16 @@ struct AuthView: View {
                                     self.accessToken = accessToken
                                     self.refreshToken = refreshToken
                                     
-                                    print(accessToken)
-                                    print(refreshToken)
-                                    
                                     oauthVM.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
                                     
                                     showKakaoWK = false
-                                    completedLogin = true
                                 }
                             })
                         })
                     }
                 }
                 .padding(.vertical, 70)
-                .navigationDestination(isPresented: $completedLogin) {
+                .navigationDestination(isPresented: $oauthVM.isLoggedIn) {
                     HomeView()
                 }
             }

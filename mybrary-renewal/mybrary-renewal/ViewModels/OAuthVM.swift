@@ -13,6 +13,8 @@ class OAuthVM: ObservableObject {
     @Published var accessToken: String?
     @Published var refreshToken: String?
     
+    @Published var isLoggedIn = false
+    
     func openWebView() {
         isWebViewPresented = true
     }
@@ -40,6 +42,7 @@ class OAuthVM: ObservableObject {
         let userDefaults = UserDefaults.standard
         userDefaults.set(accessToken, forKey: "accessToken")
         userDefaults.set(refreshToken, forKey: "refreshToken")
-        print(userDefaults)
+        print("userDefaults - \(userDefaults)")
+        self.isLoggedIn = true
     }
 }

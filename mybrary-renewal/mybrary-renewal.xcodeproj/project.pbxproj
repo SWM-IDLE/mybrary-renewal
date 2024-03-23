@@ -24,6 +24,8 @@
 		F58917142BA69771008EC345 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F58917132BA69771008EC345 /* AlamofireDynamic */; };
 		F589171C2BA6A400008EC345 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589171B2BA6A400008EC345 /* HomeView.swift */; };
 		F589172A2BA8376E008EC345 /* OAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58917292BA8376E008EC345 /* OAuthManager.swift */; };
+		F5ADCFF82BAEAE25005C93C0 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = F5ADCFF72BAEAE25005C93C0 /* JWTDecode */; };
+		F5ADCFFB2BAEB200005C93C0 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ADCFFA2BAEB200005C93C0 /* AuthModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,7 @@
 		F58917002BA68CD1008EC345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F589171B2BA6A400008EC345 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F58917292BA8376E008EC345 /* OAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthManager.swift; sourceTree = "<group>"; };
+		F5ADCFFA2BAEB200005C93C0 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +56,7 @@
 			files = (
 				F58917122BA69771008EC345 /* Alamofire in Frameworks */,
 				F58917142BA69771008EC345 /* AlamofireDynamic in Frameworks */,
+				F5ADCFF82BAEAE25005C93C0 /* JWTDecode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,8 +82,9 @@
 		F58916D02BA59995008EC345 /* mybrary-renewal */ = {
 			isa = PBXGroup;
 			children = (
-				F58917282BA8375F008EC345 /* Manager */,
+				F5ADCFF92BAEB1F3005C93C0 /* Models */,
 				F58917002BA68CD1008EC345 /* Info.plist */,
+				F58917282BA8375F008EC345 /* Manager */,
 				F58916E82BA5AA47008EC345 /* API */,
 				F58916E32BA5A325008EC345 /* Components */,
 				F58916DF2BA59E88008EC345 /* Views */,
@@ -186,6 +191,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		F5ADCFF92BAEB1F3005C93C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5ADCFFA2BAEB200005C93C0 /* AuthModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -205,6 +218,7 @@
 			packageProductDependencies = (
 				F58917112BA69771008EC345 /* Alamofire */,
 				F58917132BA69771008EC345 /* AlamofireDynamic */,
+				F5ADCFF72BAEAE25005C93C0 /* JWTDecode */,
 			);
 			productName = "mybrary-renewal";
 			productReference = F58916CE2BA59995008EC345 /* mybrary-renewal.app */;
@@ -236,6 +250,7 @@
 			mainGroup = F58916C52BA59995008EC345;
 			packageReferences = (
 				F58917102BA69771008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F5ADCFF62BAEAE25005C93C0 /* XCRemoteSwiftPackageReference "JWTDecode" */,
 			);
 			productRefGroup = F58916CF2BA59995008EC345 /* Products */;
 			projectDirPath = "";
@@ -272,6 +287,7 @@
 				F58916ED2BA5AA78008EC345 /* BaseInterceptor.swift in Sources */,
 				F58916D22BA59995008EC345 /* mybrary_renewalApp.swift in Sources */,
 				F58916E72BA5A636008EC345 /* CommonStyle.swift in Sources */,
+				F5ADCFFB2BAEB200005C93C0 /* AuthModel.swift in Sources */,
 				F589171C2BA6A400008EC345 /* HomeView.swift in Sources */,
 				F58916E22BA5A12B008EC345 /* AuthView.swift in Sources */,
 				F58916F82BA5B302008EC345 /* AuthApiService.swift in Sources */,
@@ -501,6 +517,14 @@
 				minimumVersion = 5.9.0;
 			};
 		};
+		F5ADCFF62BAEAE25005C93C0 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -513,6 +537,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F58917102BA69771008EC345 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
+		};
+		F5ADCFF72BAEAE25005C93C0 /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5ADCFF62BAEAE25005C93C0 /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
