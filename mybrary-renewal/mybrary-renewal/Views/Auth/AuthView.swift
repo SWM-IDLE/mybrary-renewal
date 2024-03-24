@@ -58,7 +58,7 @@ struct AuthView: View {
                                     
                                     oauthVM.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
                                     
-                                    showKakaoWK = false
+                                    showGoogleWK = false
                                 }
                             })
                         })

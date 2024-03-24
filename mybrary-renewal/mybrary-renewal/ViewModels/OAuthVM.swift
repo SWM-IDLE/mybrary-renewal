@@ -44,5 +44,6 @@ class OAuthVM: ObservableObject {
         userDefaults.set(refreshToken, forKey: "refreshToken")
         print("userDefaults - \(userDefaults)")
         self.isLoggedIn = true
+        self.isWebViewPresented = false
     }
 }

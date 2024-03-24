@@ -5,7 +5,7 @@
 //  Created by dongs on 3/18/24.
 //
 
-import Foundation
+import SwiftUI
 import Alamofire
 import Combine
 import JWTDecode
@@ -17,13 +17,9 @@ class OAuthManager: ObservableObject {
     @Published var isLoggedIn = false
     
     func checkTokenExpiration() {
-        // Load access token and refresh token from storage
         let accessToken = UserDefaults.standard.string(forKey: "accessToken")
         let refreshToken = UserDefaults.standard.string(forKey: "refreshToken")
         
-       
-        
-        // Check if access token and refresh token exist and access token is not expired
         if let accessToken = accessToken,
            let refreshToken = refreshToken,
            !isTokenExpired(accessToken) {
@@ -31,16 +27,18 @@ class OAuthManager: ObservableObject {
             do {
                 let accessJwt = try decode(jwt: accessToken)
                 let refreshJwt = try decode(jwt: refreshToken)
-                    
+                
                 print("OAuthManager - accessToken: \(accessJwt.body)")
                 print("OAuthManager - refreshToken: \(refreshJwt.body)")
                 
             } catch {
                 print("JWT Token Expired Error - \(error)")
             }
-            
             isLoggedIn = true
         } else {
+            if let accessToken = accessToken {
+                fetchRefreshToken(accessToken)
+            }
             isLoggedIn = false
         }
         
@@ -55,12 +53,12 @@ class OAuthManager: ObservableObject {
             if let expiresAt = jwt.expiresAt {
                 let currentTime = Date()
                 if currentTime > expiresAt {
-                    refreshToken(token)
+                    fetchRefreshToken(token)
                     return true
                 }
             }
         } catch {
-            print("JWT Token Expired Error - \(error)")
+            print("OAuthManager - JWT Token Expired Error: \(error)")
         }
         
         return false
@@ -68,30 +66,51 @@ class OAuthManager: ObservableObject {
     
     var cancellables = Set<AnyCancellable>()
     
-    func refreshToken(_ accessToken: String) {
+    func fetchRefreshToken(_ accessToken: String) {
         guard let refreshToken = UserDefaults.standard.string(forKey: "refreshToken") else {
-            print("Refresh token not found")
+            print("OAuthManager - Refresh token not found")
             return
         }
-
-        let parameters: [String: Any] = ["Authorization": accessToken,"Authorization-Refresh": refreshToken]
-        let url = "\(ApiClient.BASE_URL)/auth/v1/refresh"
-
-        AF.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
-            .publishDecodable(type: TokenResponse.self)
-            .value()
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    break
+        
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(accessToken)","Authorization-Refresh": "Bearer \(refreshToken)"]
+        let url = "\(ApiClient.BASE_URL)/user-service/auth/v1/refresh"
+        
+        AF.request(url, method: .get, headers: headers)
+            .validate(statusCode: 200..<300)
+            .response{response in
+                switch response.result {
+                case .success:
+                    print("Token Refresh Success")
+                    if let url = response.response?.url{
+                        
+                        if let accessToken = self.getParameterValue(from: url, key: "Authorization"),
+                           let refreshToken = self.getParameterValue(from: url, key: "Authorization-Refresh"){
+                            
+                            UserDefaults.standard.set(accessToken, forKey: "accessToken")
+                            UserDefaults.standard.set(refreshToken, forKey: "refreshToken")
+                            self.isLoggedIn = true
+                        }
+                    }
                 case .failure(let error):
-                    print("Failed to refresh token: \(error)")
+                    print("Token Refresh failure: \(error)")
+                    print("errorCode \(String(describing: error.responseCode))" )
+                    print("errorCode", error.localizedDescription)
                 }
-            }, receiveValue: { tokenResponse in
-                print("재발급 토큰 - \(tokenResponse)")
-                UserDefaults.standard.set(tokenResponse.accessToken, forKey: "accessToken")
-                UserDefaults.standard.set(tokenResponse.refreshToken, forKey: "refreshToken")
-            })
-            .store(in: &cancellables)
+            }
+    }
+    
+    func resetUserDefaults() {
+        for key in UserDefaults.standard.dictionaryRepresentation().keys {
+            UserDefaults.standard.removeObject(forKey: key.description)
+        }
+    }
+    
+    func getParameterValue(from url: URL, key: String) -> String? {
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+              let queryItems = components.queryItems else {
+            return nil
+        }
+        
+        return queryItems.first(where: { $0.name == key })?.value
     }
 }
