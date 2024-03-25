@@ -73,6 +73,8 @@ class OAuthManager: ObservableObject {
             return
         }
         
+        print("access: \(accessToken), refresh: \(refreshToken)")
+        
         let headers: HTTPHeaders = ["Authorization": "Bearer \(accessToken)","Authorization-Refresh": "Bearer \(refreshToken)"]
         let url = "\(ApiClient.BASE_URL)/user-service/auth/v1/refresh"
         
@@ -81,7 +83,7 @@ class OAuthManager: ObservableObject {
             .response{response in
                 switch response.result {
                 case .success:
-                    print("Token Refresh Success")
+                    print("OAuthManager - Token Refresh Success")
                     if let url = response.response?.url{
                         
                         if let accessToken = self.getParameterValue(from: url, key: "Authorization"),
@@ -93,9 +95,14 @@ class OAuthManager: ObservableObject {
                         }
                     }
                 case .failure(let error):
-                    print("Token Refresh failure: \(error)")
+                    print("OAuthManager - Token Refresh failure: \(error)")
                     print("errorCode \(String(describing: error.responseCode))" )
-                    print("errorCode", error.localizedDescription)
+                    
+                    if let data = response.data {
+                        let responseBody = String(data: data, encoding: .utf8)
+                        print("OAuthManager - Token Refresh fail Body: \(responseBody ?? "No data")")
+                    }
+                    
                     self.isLoggedIn = false
                 }
             }

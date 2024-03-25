@@ -12,6 +12,7 @@ struct CommonStyle {
     static var MAIN_COLOR = Color(hex: "19C568")
     static var BLACK_COLOR = Color(hex: "000000")
     static var WHITE_COLOR = Color(hex: "FFFFFF")
+    static var DIVIDER_COLOR = Color(hex: "DDDDDD")
     
     // Auth Color
     static var NAVER_COLOR = Color(hex: "0AC75A")
