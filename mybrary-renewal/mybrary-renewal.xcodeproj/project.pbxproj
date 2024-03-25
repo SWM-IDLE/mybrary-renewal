@@ -26,6 +26,11 @@
 		F589172A2BA8376E008EC345 /* OAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58917292BA8376E008EC345 /* OAuthManager.swift */; };
 		F5ADCFF82BAEAE25005C93C0 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = F5ADCFF72BAEAE25005C93C0 /* JWTDecode */; };
 		F5ADCFFB2BAEB200005C93C0 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ADCFFA2BAEB200005C93C0 /* AuthModel.swift */; };
+		F5ADD0052BB14EA1005C93C0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ADD0042BB14EA1005C93C0 /* HomeRouter.swift */; };
+		F5ADD0072BB15220005C93C0 /* HomeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ADD0062BB15220005C93C0 /* HomeApiService.swift */; };
+		F5ADD0092BB1523C005C93C0 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ADD0082BB1523C005C93C0 /* CommonModel.swift */; };
+		F5ADD00B2BB1530C005C93C0 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ADD00A2BB1530C005C93C0 /* SearchModel.swift */; };
+		F5ADD00D2BB15439005C93C0 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ADD00C2BB15439005C93C0 /* HomeVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +52,11 @@
 		F589171B2BA6A400008EC345 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F58917292BA8376E008EC345 /* OAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthManager.swift; sourceTree = "<group>"; };
 		F5ADCFFA2BAEB200005C93C0 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		F5ADD0042BB14EA1005C93C0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		F5ADD0062BB15220005C93C0 /* HomeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeApiService.swift; sourceTree = "<group>"; };
+		F5ADD0082BB1523C005C93C0 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
+		F5ADD00A2BB1530C005C93C0 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		F5ADD00C2BB15439005C93C0 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				F58916F92BA5B316008EC345 /* AuthRouter.swift */,
+				F5ADD0042BB14EA1005C93C0 /* HomeRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -163,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				F58916F72BA5B302008EC345 /* AuthApiService.swift */,
+				F5ADD0062BB15220005C93C0 /* HomeApiService.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -171,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				F58916FE2BA6894B008EC345 /* OAuthVM.swift */,
+				F5ADD00C2BB15439005C93C0 /* HomeVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -195,6 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				F5ADCFFA2BAEB200005C93C0 /* AuthModel.swift */,
+				F5ADD0082BB1523C005C93C0 /* CommonModel.swift */,
+				F5ADD00A2BB1530C005C93C0 /* SearchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,7 +296,11 @@
 				F58916D42BA59995008EC345 /* ContentView.swift in Sources */,
 				F58916E52BA5A332008EC345 /* OAuthButton.swift in Sources */,
 				F58916FA2BA5B316008EC345 /* AuthRouter.swift in Sources */,
+				F5ADD00B2BB1530C005C93C0 /* SearchModel.swift in Sources */,
+				F5ADD0072BB15220005C93C0 /* HomeApiService.swift in Sources */,
 				F58916F42BA5AAD6008EC345 /* ApiLogger.swift in Sources */,
+				F5ADD0052BB14EA1005C93C0 /* HomeRouter.swift in Sources */,
+				F5ADD0092BB1523C005C93C0 /* CommonModel.swift in Sources */,
 				F58916FF2BA6894B008EC345 /* OAuthVM.swift in Sources */,
 				F58916F62BA5AB53008EC345 /* ApiClient.swift in Sources */,
 				F58916ED2BA5AA78008EC345 /* BaseInterceptor.swift in Sources */,
@@ -291,6 +310,7 @@
 				F589171C2BA6A400008EC345 /* HomeView.swift in Sources */,
 				F58916E22BA5A12B008EC345 /* AuthView.swift in Sources */,
 				F58916F82BA5B302008EC345 /* AuthApiService.swift in Sources */,
+				F5ADD00D2BB15439005C93C0 /* HomeVM.swift in Sources */,
 				F589172A2BA8376E008EC345 /* OAuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

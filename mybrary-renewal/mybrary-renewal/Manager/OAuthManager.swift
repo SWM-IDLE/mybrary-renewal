@@ -14,7 +14,8 @@ class OAuthManager: ObservableObject {
     
     static let shared = OAuthManager()
     
-    @Published var isLoggedIn = false
+    @Published var isLoggedIn = true
+    @Published var userId = ""
     
     func checkTokenExpiration() {
         let accessToken = UserDefaults.standard.string(forKey: "accessToken")
@@ -28,18 +29,18 @@ class OAuthManager: ObservableObject {
                 let accessJwt = try decode(jwt: accessToken)
                 let refreshJwt = try decode(jwt: refreshToken)
                 
+                userId = "\(String(describing: accessJwt.body["loginId"]))"
+                
                 print("OAuthManager - accessToken: \(accessJwt.body)")
                 print("OAuthManager - refreshToken: \(refreshJwt.body)")
                 
             } catch {
                 print("JWT Token Expired Error - \(error)")
             }
-            isLoggedIn = true
         } else {
             if let accessToken = accessToken {
                 fetchRefreshToken(accessToken)
             }
-            isLoggedIn = false
         }
         
         print("login - \(isLoggedIn)")
@@ -95,6 +96,7 @@ class OAuthManager: ObservableObject {
                     print("Token Refresh failure: \(error)")
                     print("errorCode \(String(describing: error.responseCode))" )
                     print("errorCode", error.localizedDescription)
+                    self.isLoggedIn = false
                 }
             }
     }

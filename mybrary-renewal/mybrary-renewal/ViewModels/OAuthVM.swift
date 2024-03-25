@@ -42,7 +42,6 @@ class OAuthVM: ObservableObject {
         let userDefaults = UserDefaults.standard
         userDefaults.set(accessToken, forKey: "accessToken")
         userDefaults.set(refreshToken, forKey: "refreshToken")
-        print("userDefaults - \(userDefaults)")
         self.isLoggedIn = true
         self.isWebViewPresented = false
     }

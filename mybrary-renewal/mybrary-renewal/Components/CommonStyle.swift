@@ -16,6 +16,9 @@ struct CommonStyle {
     // Auth Color
     static var NAVER_COLOR = Color(hex: "0AC75A")
     static var KAKAO_COLOR = Color(hex: "FEE500")
+    
+    // Home Color
+    static var BANNER_BG_COLOR = Color(hex: "15BF81")
 }
 
 // #이 있으면 제거 후 문자열로 RGB 추출
